@@ -1,0 +1,29 @@
+{
+  "name": "demo-app",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Diego Pascual <diegopf@users.noreply.github.com>",
+  "homepage": "https://github.com/diegopf/gh-actions-playground#readme",
+  "license": "ISC",
+  "main": "lib/demo-app.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegopf/gh-actions-playground.git"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "bugs": {
+    "url": "https://github.com/diegopf/gh-actions-playground/issues"
+  },
+  "devDependencies": {
+    "jest": "^27.4.7"
+  }
+}
