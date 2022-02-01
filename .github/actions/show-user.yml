@@ -3,5 +3,5 @@ runs:
   using: "composite"
   steps:
   - name: show user name
-  - run: echo "commited by ${{ github.actor }}"
+    run: echo "commited by ${{ github.actor }}"
   
