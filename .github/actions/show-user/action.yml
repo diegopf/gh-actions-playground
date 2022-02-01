@@ -4,4 +4,5 @@ runs:
   steps:
   - name: show user name
     run: echo "commited by ${{ github.actor }}"
+    shell: bash
   
