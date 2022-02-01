@@ -10,7 +10,7 @@ jobs:
     steps:
       - run: echo "pr was merged ${{ github.event.pull_request.merged }}"
       - name: test action
-      - uses: ./.github/actions/show-user
+        uses: ./.github/actions/show-user
       - uses: actions/checkout@v2
       - name: Install lerna and all packages
         run: npm ci
