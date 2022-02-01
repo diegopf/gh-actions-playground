@@ -2,6 +2,9 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "postinstall": "lerna bootstrap --hoist && npm run build",
+    "postci": "lerna bootstrap --hoist --ci && npm run build",
+    "build": "lerna run build",
     "test": "lerna run test"
   },
   "devDependencies": {
