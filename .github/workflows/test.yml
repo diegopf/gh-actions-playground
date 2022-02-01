@@ -9,9 +9,9 @@ jobs:
     container: cypress/browsers:node14.17.0-chrome91-ff89
     steps:
       - run: echo "pr was merged ${{ github.event.pull_request.merged }}"
+      - uses: actions/checkout@v2
       - name: test action
         uses: ./.github/actions/show-user
-      - uses: actions/checkout@v2
       - name: Install lerna and all packages
         run: npm ci
       - name: Run tests in all packages
