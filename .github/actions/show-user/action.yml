@@ -16,9 +16,10 @@ runs:
       run: echo //registry.npmjs.org/:_authToken=${inputs.npm-token} > .npmrc
       shell: bash
       env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NPM_TOKEN: ${{ inputs.NPM_TOKEN }}
     - name: Create report file
       run: date +%s > report.txt
+      shell: bash
     # - name: Push changes to GitHub
     #   run: git push --follow-tags
     #   shell: bash
