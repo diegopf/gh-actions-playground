@@ -18,9 +18,9 @@ jobs:
           token: ${{ secrets.TOKEN }}
       # - name: Install lerna and all packages
       #   run: npm ci
-      - name: test action
+      - name: Test release action
         if: ${{ !startsWith(github.event.head_commit.message, 'v0')}}
-        uses: ./.github/actions/show-user
+        uses: ./.github/actions/release-alpha
         with:
           npm-token: ${{ secrets.TOKEN }}
       # - name: Run tests in all packages
