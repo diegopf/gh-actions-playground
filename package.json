@@ -5,7 +5,8 @@
     "postinstall": "lerna bootstrap --hoist && npm run build",
     "postci": "lerna bootstrap --hoist --ci && npm run build",
     "build": "lerna run build",
-    "test": "lerna run test"
+    "test": "lerna run test",
+    "publish": "lerna run publish"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
