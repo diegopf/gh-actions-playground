@@ -21,6 +21,6 @@ jobs:
       #     npm-token: ${{ secrets.GITHUB_TOKEN }}        
       # - name: Run tests in all packages
       #   run: npm run test
-      # - name: test pr merged
-        if: github.event.pull_request.merged == true
+      - name: Only run if pr was merged
+        if: github.event.pull_request.merged == true      
         run: echo "pr was merged ${{ github.event.pull_request.merged }}"
