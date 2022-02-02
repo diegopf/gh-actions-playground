@@ -8,8 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     container: cypress/browsers:node14.17.0-chrome91-ff89
     steps:
-      - run: echo "pr was merged ${{ github.event.pull_request.merged }}"
-      - run: echo "pr target is ${{ github.base_ref }}"
+      - name: 'pr merged'
+        run: echo "pr was merged ${{ github.event.pull_request.merged }}"
+      - name: 'base_ref'
+        run: echo "pr target is ${{ github.base_ref }}"
       # - uses: actions/checkout@v2
       # - name: Install lerna and all packages
       #   run: npm ci
