@@ -12,26 +12,26 @@ runs:
         git config --local user.email "diegopf@users.noreply.github.com"
         git config --local user.name "diegopf"
       shell: bash
-    - name: lerna publish
-      run: npm run publish
-      shell: bash
-    - name: push tags
-      run: |          
-          git push --follow-tags
-      shell: bash       
+    # - name: lerna publish
+    #   run: npm run publish
+      # shell: bash     
     # - name: Create .npmrc file with authorization token
     #   run: echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
     #   shell: bash
     #   env:
     #     NPM_TOKEN: ${{ inputs.npm-token }}
-    # - name: Create report file
-    #   run: date +%s > report.txt
-    #   shell: bash
+    - name: Create report file
+      run: date +%s > report.txt
+      shell: bash
     # - name: Push changes to GitHub
     #   run: git push --follow-tags
     #   shell: bash
-    # - name: Commit report
-    #   run: |
-    #       git commit -am "Automated report"
-    #       git push
-    #   shell: bash        
+    - name: Commit report
+      run: |
+          git commit -am "Automated report"
+          git tag report          
+      shell: bash 
+    - name: push tags
+      run: |          
+          git push --follow-tags
+      shell: bash             
