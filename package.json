@@ -9,6 +9,7 @@
     "publish:fake": "lerna publish --skip-npm --conventional-commits --conventional-prerelease --no-push --yes"
   },
   "devDependencies": {
+    "conventional-changelog-conventionalcommits": "^4.6.3",
     "lerna": "^4.0.0"
   }
 }
