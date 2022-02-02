@@ -5,23 +5,23 @@ jobs:
     runs-on: ubuntu-latest
     container: cypress/browsers:node14.17.0-chrome91-ff89
     steps:
-      - name: 'pr merged'
-        run: echo "pr was merged ${{ github.event.pull_request.merged }}"
-      - name: 'base_ref'
-        run: echo "pr target is ${{ github.base_ref }}"
-      - name: 'github.ref'
-        run: echo "github ref ${{ github.ref }}"
-      - name: 'github.event.head_commit.message'
-        run: echo "github ref ${{ github.event.head_commit.message }}"
+      # - name: "pr merged"
+      #   run: echo "pr was merged ${{ github.event.pull_request.merged }}"
+      # - name: "base_ref"
+      #   run: echo "pr target is ${{ github.base_ref }}"
+      # - name: "github.ref"
+      #   run: echo "github ref ${{ github.ref }}"
+      # - name: "github.event.head_commit.message"
+      #   run: echo "github ref ${{ github.event.head_commit.message }}"
       # - uses: actions/checkout@v2
       # - name: Install lerna and all packages
       #   run: npm ci
       # - name: test action
       #   uses: ./.github/actions/show-user
       #   with:
-      #     npm-token: ${{ secrets.GITHUB_TOKEN }}        
+      #     npm-token: ${{ secrets.GITHUB_TOKEN }}
       # - name: Run tests in all packages
       #   run: npm run test
-      - name: Only run if pr was merged
-        if: github.event.pull_request.merged == true      
+      - name: Only run if commit message does not start with publish
+        if: ${{ !startsWith(github.event.head_commit.message, 'Publish') && github.actor == 'diegopf' }}
         run: echo "pr was merged ${{ github.event.pull_request.merged }}"
