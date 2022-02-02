@@ -12,6 +12,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: test action
         uses: ./.github/actions/show-user
+        with:
+          npm-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Install lerna and all packages
         run: npm ci
       - name: Run tests in all packages

@@ -1,8 +1,29 @@
-name: show user
+name: Release alpha version
+description: Release alpha version
+inputs:
+  npm-token:
+    description: Token to push code with
+    required: true
 runs:
   using: "composite"
   steps:
-  - name: show user name
-    run: echo "commited by ${{ github.actor }}"
-    shell: bash
-  
+    - name: Configure git user
+      run: |
+        git config --local user.email "diegopf@users.noreply.github.com"
+        git config --local user.name "diegopf"
+      shell: bash
+    - name: Create .npmrc file with authorization token
+      run: echo //registry.npmjs.org/:_authToken=${inputs.npm-token} > .npmrc
+      shell: bash
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Create report file
+      run: date +%s > report.txt
+    # - name: Push changes to GitHub
+    #   run: git push --follow-tags
+    #   shell: bash
+    - name: Commit report
+      run: |
+          git commit -am "Automated report"
+          git push
+      shell: bash      
