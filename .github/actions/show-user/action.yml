@@ -15,8 +15,6 @@ runs:
     - name: Create .npmrc file with authorization token
       run: echo //registry.npmjs.org/:_authToken=${inputs.npm-token} > .npmrc
       shell: bash
-      env:
-        NPM_TOKEN: ${{ inputs.NPM_TOKEN }}
     - name: Create report file
       run: date +%s > report.txt
       shell: bash
