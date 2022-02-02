@@ -24,4 +24,4 @@ jobs:
       #   run: npm run test
       - name: Only run if commit message does not start with publish
         if: ${{ !startsWith(github.event.head_commit.message, 'Publish') && github.actor == 'diegopf' }}
-        run: echo "pr was merged ${{ github.event.pull_request.merged }}"
+        run: echo "this is not a release commit"
