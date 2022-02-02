@@ -13,8 +13,10 @@ runs:
         git config --local user.name "diegopf"
       shell: bash
     - name: Create .npmrc file with authorization token
-      run: echo //registry.npmjs.org/:_authToken=${inputs.npm-token} > .npmrc
+      run: echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
       shell: bash
+      env:
+        NPM_TOKEN: ${{ inputs.npm-token }}
     - name: Create report file
       run: date +%s > report.txt
       shell: bash
