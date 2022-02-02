@@ -2,22 +2,23 @@ name: Test
 on: 
   push:
   pull_request:
-    types: [ closed ]
+    types: [ open, synchronize, reopened, closed ]
 jobs:
   build:
     runs-on: ubuntu-latest
     container: cypress/browsers:node14.17.0-chrome91-ff89
     steps:
       - run: echo "pr was merged ${{ github.event.pull_request.merged }}"
-      - uses: actions/checkout@v2
-      - name: Install lerna and all packages
-        run: npm ci
-      - name: test action
-        uses: ./.github/actions/show-user
-        with:
-          npm-token: ${{ secrets.GITHUB_TOKEN }}        
-      - name: Run tests in all packages
-        run: npm run test
-      - name: test pr merged
+      - run: echo "pr target is ${{ github.base_ref }}"
+      # - uses: actions/checkout@v2
+      # - name: Install lerna and all packages
+      #   run: npm ci
+      # - name: test action
+      #   uses: ./.github/actions/show-user
+      #   with:
+      #     npm-token: ${{ secrets.GITHUB_TOKEN }}        
+      # - name: Run tests in all packages
+      #   run: npm run test
+      # - name: test pr merged
         if: github.event.pull_request.merged == true
         run: echo "pr was merged ${{ github.event.pull_request.merged }}"
