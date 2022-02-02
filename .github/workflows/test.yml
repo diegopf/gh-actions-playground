@@ -1,8 +1,5 @@
 name: Test
-on: 
-  push:
-  pull_request:
-    types: [ opened, synchronize, reopened, closed ]
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,6 +9,8 @@ jobs:
         run: echo "pr was merged ${{ github.event.pull_request.merged }}"
       - name: 'base_ref'
         run: echo "pr target is ${{ github.base_ref }}"
+      - name: 'github.ref'
+        run: echo "github ref ${{ github.ref }}"
       # - uses: actions/checkout@v2
       # - name: Install lerna and all packages
       #   run: npm ci
