@@ -6,7 +6,7 @@
     "postci": "lerna bootstrap --hoist --ci && npm run build",
     "build": "lerna run build",
     "test": "lerna run test",
-    "publish:fake": "lerna run publish --skip-npm --conventional-commits"
+    "publish:fake": "lerna publish --skip-npm --conventional-commits --no-push"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
