@@ -14,8 +14,6 @@ jobs:
       # - name: "github.event.head_commit.message"
       #   run: echo "github ref ${{ github.event.head_commit.message }}"
       - uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.TOKEN }}
       # - name: Install lerna and all packages
       #   run: npm ci
       - name: Test release action
