@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: "github ref name"
         run: echo "ref name ${{ github.ref_name }}"
-      - name: "base_ref"
+      # - name: "base_ref"
       #   run: echo "pr target is ${{ github.base_ref }}"
       # - name: "github.ref"
       #   run: echo "github ref ${{ github.ref }}"
