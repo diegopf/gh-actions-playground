@@ -6,8 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     # container: cypress/browsers:node14.17.0-chrome91-ff89
     steps:
-      # - name: "pr merged"
-      #   run: echo "pr was merged ${{ github.event.pull_request.merged }}"
+      - name: "show github ref"
+        run: echo "Github ref ${{ github.ref }}"
       # - name: "base_ref"
       #   run: echo "pr target is ${{ github.base_ref }}"
       # - name: "github.ref"
