@@ -1,5 +1,5 @@
 name: Test
-on: [push]
+on: [push, pull_request]
 concurrency: ${{ github.workflow }}-${{ github.ref_name }}
 jobs:
   build:
