@@ -20,7 +20,7 @@ jobs:
       - name: Run tests in all packages
         run: npm run test
       - name: Test release action
-        if: ${{ !startsWith(github.event.head_commit.message, 'v0')}}
+        if: ${{ !startsWith(github.event.head_commit.message, 'v0') && github.ref_name == 'main'}}
         uses: ./.github/actions/release-alpha
         with:
           npm-token: ${{ secrets.TOKEN }}
