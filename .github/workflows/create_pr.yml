@@ -1,0 +1,26 @@
+name: Create PR
+on: [workflow_dispatch]
+jobs:
+  prepare-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Install lerna and all packages
+        run: npm ci
+      - name: Configure git user
+        run: |
+          git config --local user.email "diegopf@users.noreply.github.com"
+          git config --local user.name "diegopf"
+      - name: Prepare the release
+        run: npm run prepare-release
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: "chore(release): prepare release"
+          committer: Diego Pascual
+          title: release
+          body: Release preparation
+          branch: release
+          delete-branch: true

@@ -6,7 +6,8 @@
     "postci": "lerna bootstrap --hoist --ci && npm run build",
     "build": "lerna run build",
     "test": "lerna run test",
-    "publish:fake": "lerna publish --skip-npm --conventional-commits --conventional-prerelease --no-push --yes"
+    "publish:fake": "lerna publish --skip-npm --conventional-commits --conventional-prerelease --no-push --yes",
+    "prepare-release": "lerna version --conventional-commits --conventional-graduate --no-git-tag-version --yes"
   },
   "devDependencies": {
     "conventional-changelog-conventionalcommits": "^4.6.3",
