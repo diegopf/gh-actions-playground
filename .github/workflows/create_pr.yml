@@ -19,7 +19,7 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           commit-message: "chore(release): prepare release"
-          committer: Diego Pascual
+          committer: Diego Pascual <diegopf@users.noreply.github.com>
           title: release
           body: Release preparation
           branch: release
