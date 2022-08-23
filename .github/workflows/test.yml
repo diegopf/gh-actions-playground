@@ -1,12 +1,11 @@
 name: Test
 on: [push, pull_request]
-concurrency: 
+concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}
   cancel-in-progress: true
 jobs:
   build:
     runs-on: ubuntu-latest
-    # container: cypress/browsers:node14.17.0-chrome91-ff89
     steps:
       - name: "show github ref"
         run: echo "Github ref ${{ github.ref }}"
