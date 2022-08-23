@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1](https://github.com/diegopf/gh-actions-playground/compare/v0.0.1-alpha.30...v0.0.1) (2022-08-23)
+
+**Note:** Version bump only for package demo-app
+
+
+
+
+
 ## 0.0.1-alpha.30 (2022-08-23)
 
 **Note:** Version bump only for package demo-app
