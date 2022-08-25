@@ -34,9 +34,7 @@ runs:
     #     git commit -am "Automated report"
     #     git tag report
     #   shell: bash
-    - name: Push tags
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ inputs.github-token }}
-        branch: ${{ github.ref }}
-        tags: true
+    - name: push tags
+      run: |
+        git push --follow-tags
+      shell: bash
