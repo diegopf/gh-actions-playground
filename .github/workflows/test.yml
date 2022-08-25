@@ -16,6 +16,9 @@ jobs:
       # - name: "github.event.head_commit.message"
       #   run: echo "github ref ${{ github.event.head_commit.message }}"
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
       - name: Install lerna and all packages
         run: npm ci
       - name: Run tests in all packages
@@ -25,6 +28,7 @@ jobs:
         uses: ./.github/actions/release-alpha
         with:
           npm-token: ${{ secrets.TOKEN }}
+          github-token: ${{ secrets.TOKEN }}
       - name: Only run if commit message does not start with publish
         if: ${{ !startsWith(github.event.head_commit.message, 'v0.0.1') && github.actor == 'diegopf' }}
         run: echo "this is not a release commit"
