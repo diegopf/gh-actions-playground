@@ -4,6 +4,9 @@ inputs:
   npm-token:
     description: Token to push code with
     required: true
+  github-token:
+    description: Token to push code to github
+    required: true
 runs:
   using: "composite"
   steps:
@@ -31,7 +34,9 @@ runs:
     #     git commit -am "Automated report"
     #     git tag report
     #   shell: bash
-    - name: push tags
-      run: |
-        git push --follow-tags
-      shell: bash
+    - name: Push tags
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ inputs.github-token }}
+        branch: ${{ github.ref }}
+        tags: true
