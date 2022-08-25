@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-alpha.34](https://github.com/diegopf/gh-actions-playground/compare/v0.0.1-alpha.32...v0.0.1-alpha.34) (2022-08-25)
+
+
+### Features
+
+* enable `ad-m/github-push-action` ([#46](https://github.com/diegopf/gh-actions-playground/issues/46)) ([65b15f8](https://github.com/diegopf/gh-actions-playground/commit/65b15f855e284767422e3c168746e0bb5a33822c))
+
+
+
+
+
 ## [0.0.1-alpha.32](https://github.com/diegopf/gh-actions-playground/compare/v0.0.1-alpha.30...v0.0.1-alpha.32) (2022-08-25)
 
 **Note:** Version bump only for package root
