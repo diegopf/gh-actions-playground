@@ -24,6 +24,6 @@
     "url": "https://github.com/diegopf/gh-actions-playground/issues"
   },
   "devDependencies": {
-    "jest": "^28.1.1"
+    "jest": "^29.0.2"
   }
 }
