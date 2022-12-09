@@ -22,15 +22,11 @@ jobs:
       - name: Create report file
         run: date +%s > report.txt
         shell: bash
-      - name: Configure Git for commits
-        run: |
-          git config --local user.email "diegopf@users.noreply.github.com"
-          git config --local user.name "diegopf"
-        shell: bash
       - name: Commit and push if it changed
         run: |
-          git status          
+          git config --local user.email "diegopf@users.noreply.github.com"
+          git config --local user.name "diegopf"               
           timestamp=$(date -u)
-          git commit -a -m "GitHub: ${timestamp}" || exit 0
+          git commit -am "GitHub: ${timestamp}" || exit 0
           git push
         shell: bash
