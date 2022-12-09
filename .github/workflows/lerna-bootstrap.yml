@@ -28,5 +28,9 @@ jobs:
           git config --local user.name "diegopf"               
           timestamp=$(date -u)
           git commit -am "GitHub: ${timestamp}" || exit 0
-          git push
         shell: bash
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          branch: ${{ github.event.pull_request.head.ref }}
