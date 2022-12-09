@@ -1,23 +1,22 @@
-name: 'Lerna bootstrap'
+name: "Lerna bootstrap"
 # filter PRs by author
-on: [pull_request]
+on:
+  pull_request:
 jobs:
   lerna-bootstrap:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Ensure npx uses a cache
         uses: actions/setup-node@v2
         with:
-          node-version: '16'
-          cache: 'npm'
+          node-version: "16"
+          cache: "npm"
       - name: Run lerna bootstrap
         run: npx lerna bootstrap --hoist
       - name: Install lerna and all packages
         run: npm ci
-
-            
