@@ -28,9 +28,8 @@ jobs:
         shell: bash
       - name: Commit and push if it changed
         run: |
-          git status
-          git add -A
+          git status          
           timestamp=$(date -u)
-          git commit -m "GitHub: ${timestamp}" || exit 0
+          git commit -a -m "GitHub: ${timestamp}" || exit 0
           git push
         shell: bash
