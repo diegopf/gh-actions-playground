@@ -11,6 +11,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+          ref: ${{ github.event.pull_request.head.ref }}
       - name: Ensure npx uses a cache
         uses: actions/setup-node@v2
         with:
