@@ -24,6 +24,7 @@ jobs:
           git config --local user.name "diegopf"
       - name: Commit and push if it changed
         run: |-
+          git status
           git add -A
           timestamp=$(date -u)
           git commit -m "GitHub: ${timestamp}" || exit 0
