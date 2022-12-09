@@ -20,3 +20,13 @@ jobs:
         run: npx lerna bootstrap --hoist
       - name: Install lerna and all packages
         run: npm ci
+      - name: Configure Git for commits
+        run: |-
+          git config --local user.email "diegopf@users.noreply.github.com"
+          git config --local user.name "diegopf"
+      - name: Commit and push if it changed
+        run: |-
+          git add -A
+          timestamp=$(date -u)
+          git commit -m "GitHub: ${timestamp}" || exit 0
+          git push
