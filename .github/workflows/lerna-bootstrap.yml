@@ -7,16 +7,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
           persist-credentials: false
+          ref: ${{ github.event.pull_request.head.ref }}
       - name: Ensure npx uses a cache
         uses: actions/setup-node@v2
         with:
           node-version: "16"
           cache: "npm"
       - name: Run lerna bootstrap
-        run: npx lerna bootstrap --hoist
-      - name: Install lerna and all packages
-        run: npm ci
+        run: |
+          npx lerna bootstrap --hoist
+          git config --local user.email "diegopf@users.noreply.github.com"
+          git config --local user.name "diegopf"               
+          timestamp=$(date -u)
+          git commit -am "GitHub: ${timestamp}" || exit 0
+        shell: bash
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          branch: ${{ github.event.pull_request.head.ref }}
