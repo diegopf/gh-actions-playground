@@ -32,3 +32,9 @@ jobs:
       - name: Only run if commit message does not start with publish
         if: ${{ !startsWith(github.event.head_commit.message, 'v0.0.1') && github.actor == 'diegopf' }}
         run: echo "this is not a release commit"
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
