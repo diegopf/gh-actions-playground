@@ -6,7 +6,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v2
