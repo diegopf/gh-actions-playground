@@ -12,5 +12,5 @@ jobs:
         with:
           node-version: "18"
       - name: Log tag name
-        if: startsWith(github.ref, 'refs/tags/release-')
-        run: echo "release tag name is ${{ github.ref }}"
+        if: startsWith(github.ref, 'refs/tags/release-') && github.ref_name == 'main'
+        run: echo "release tag name is ${{ github.ref }} and the branch is ${{ github.ref_name }}"
